@@ -1,0 +1,153 @@
+
+/* ============================ DASHBOARD HEADER ============================*/
+
+.main-header .logo {
+  font-family: "Georgia", Times, "Times New Roman", serif;
+  font-weight: bold;
+  font-size: 24px;
+  color: #1d453b !important;
+  background-color: #afc1bc !important;
+}
+
+
+.main-header .navbar {
+  background-color: #afc1bc !important; /* Forest green, change as needed */
+  
+  /*border-radius: 0 0 18px 18px !important; */
+  width: 85% !important; 
+  box-shadow: 0 4px 16px transparent; /* subtle shadow for separation */
+  position: relative;
+  z-index: 1001; 
+}
+
+.main-header .logo:hover {
+  background-color: #afc1bc !important;
+}
+
+.main-header .navbar .sidebar-toggle:hover {
+  background-color: #afc1bc !important;
+}
+
+
+
+/* ============================ DASHBOARD BODY ==============================*/
+
+.wrapper {
+      background-color: white !important;
+    }
+
+.content-wrapper, .right-side {
+      background-color: white !important;
+      /*margin-left: 246px; */
+    }
+
+
+/* ======================== SIDEBAR MENU ITEMS ==============================*/
+
+
+  /* Sidebar background */
+  .main-sidebar {
+    background-color: #afc1bc !important;
+    /*
+    border-radius: 20px;          
+    margin: 60px 10px 90px 10px;      
+    left: 0;
+    top: 0;
+    height: calc(100vh - 70px - 100px);     
+    width: 230px;                  
+    z-index: 1000;                 
+   overflow-y: auto; 
+   */
+  }
+  
+  .main-sidebar .sidebar-menu .treeview-menu {
+    background-color: #afc1bc !important;
+  }
+  
+  .main-sidebar .sidebar-menu > li.menu-open > a,
+  .main-sidebar .sidebar-menu > li.active > a {
+    background-color: #7B9790 !important;
+    color: black !important;
+    border-left: 4px solid #1d453b !important;
+  }
+
+
+.main-sidebar .sidebar-menu > li > a.submenu-hover {
+  background-color: #afc1bc !important; 
+  color: black !important;
+  border-left: 4px solid #1d453b !important;
+}
+
+  .main-sidebar .sidebar-menu .treeview-menu > li.active > a {
+    background-color: #7B9790 !important; 
+    color: black !important;
+    border-left: 3px solid #1d453b !important;
+  }
+  
+   
+  /* menuItem hover effect */
+  .sidebar-menu > li > a:hover {
+    background-color: #D3DCDA !important; 
+    color: black !important;
+    border-left: 4px solid #1d453b !important;
+  }
+  
+  /* menuSubItem hover effect */
+  .main-sidebar .sidebar-menu .treeview-menu > li > a:hover {
+    background-color: #D3DCDA !important;
+    color: black !important;
+    border-left: 3px solid #1d453b !important;
+  }
+  
+  /* menuItem text color */
+  .sidebar-menu > li > a {
+    color: #1d453b !important;
+  }
+  
+  /* menuSubItem text color */
+  .main-sidebar .sidebar-menu .treeview-menu > li > a {
+    color: #1d453b !important;
+  }
+
+ 
+ 
+ 
+/* ============================ SIDEBAR DISCLAIMER ===========================*/
+
+.sidebar-disclaimer {
+  position: absolute;
+  bottom: 30px;          /* Space from bottom */
+  left: 15px;            /* Align with sidebar padding */
+  right: 10px;
+  font-size: 13px;
+  color: #F6F8F7;
+  text-align: left;
+  padding-top: 10px;
+  border-top: 1px solid #F6F8F7; /* Optional separator line */
+}
+  
+
+
+/* ================================= BOXES ===================================*/
+.box {
+    border-radius: 15px !important;
+    background-color: #f8f8f6 !important; 
+    border: none !important;
+    border: 2px solid #eef0f2 !important;
+    box-shadow: none !important;
+  }
+  
+  .box-header {
+    background: transparent !important;
+    border-bottom: none !important;
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+  }
+ 
+  .box-title {
+    font-weight: normal !important;
+    font-size: 16px !important;
+  }
+
+
+
