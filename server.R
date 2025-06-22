@@ -13,19 +13,4 @@ server <- function(input, output) {
   
   chloroplethServer("chloropleth", reactive(input$qi), reactive(input$year))
   
-  set.seed(122)
-  histdata <- rnorm(500)
-  
-  
-  # output$plot4 <- renderPlot({
-  #   data <- histdata[seq_len(10)]
-  #   hist(data, col = "darkorange")
-  # })
-  
-  
-  # output$plot5 <- renderPlot({
-  #   data <- histdata[seq_len(10)]
-  #   hist(data, col = "#7B9790")
-  # })
-  
 }

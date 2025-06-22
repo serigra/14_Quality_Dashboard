@@ -41,7 +41,7 @@ methodik_text <- function() {
   
   br(), br(),
   h4("R Packages"),
-  p("shiny, shinydashboard, ggplot, ggiraph, leaflet")
+  p("shiny, shinydashboard, ggplot2, ggiraph, plotly, leaflet")
 )
   return(output)
 }

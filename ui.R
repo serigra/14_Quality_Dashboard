@@ -92,18 +92,6 @@ ui <- dashboardPage(
                           
                           chloroplethUI("chloropleth")
                           
-                          # fluidRow(
-                          #   
-                          #   column(width = 5,
-                          #          #p("alksjdflas jalsdkjfas lkjs dflasdkfj sdfkljsd.")
-                          #          chloroplethUI("plotmap")
-                          #         ),
-                          #   
-                          #   column(width = 7,
-                          #          #plotOutput("plot5", height = 280)
-                          #          chloroplethUI("plotbar")
-                          #         )
-                          #       )
                           
                           )
                       )

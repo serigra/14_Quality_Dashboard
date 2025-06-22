@@ -15,7 +15,6 @@ chloroplethUI <- function(id) {
           )
         )
 
- 
 }
 
 
@@ -33,7 +32,6 @@ chloroplethServer <- function(id, qi, year) {
                        filter(year == year())
     )
     
- 
     output$plotbar <- renderPlotly(
       
       kanton_plot(data = data())

@@ -34,6 +34,7 @@ kanton_plot <- function(data) {
         )
       ),
       plot_bgcolor = '#f8f8f6',
+      paper_bgcolor = '#f8f8f6',  
       bargap = 0.3
     )
   
