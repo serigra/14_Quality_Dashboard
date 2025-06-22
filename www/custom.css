@@ -116,7 +116,7 @@
 
 .sidebar-disclaimer {
   position: absolute;
-  bottom: 30px;          /* Space from bottom */
+  bottom: 60px;          /* Space from bottom */
   left: 15px;            /* Align with sidebar padding */
   right: 10px;
   font-size: 13px;
@@ -128,7 +128,26 @@
   
 
 
+
+/* ======================= SELECT INPUT / DROP DOWN ===========================*/
+
+.selectize-dropdown-content .active {
+  background-color: #D3DCDA !important;  
+  color: white !important;                
+}
+.selectize-dropdown-content .selected {
+  background-color: #7B9790 !important;  
+  color: white !important;                
+}
+
+.selectize-input.focus {
+  box-shadow: 0 0 4px 1px #7B9790 !important;
+  border-color: #7B9790 !important;
+}
+
+
 /* ================================= BOXES ===================================*/
+
 .box {
     border-radius: 15px !important;
     background-color: #f8f8f6 !important; 
