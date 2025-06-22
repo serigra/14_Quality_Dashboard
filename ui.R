@@ -6,7 +6,6 @@ library(tidyverse)
 
 ui <- dashboardPage(
   
-  
   dashboardHeader(title = "Ambulante Qualitätsindikatoren", titleWidth = 450),
   
   dashboardSidebar(
@@ -34,12 +33,14 @@ ui <- dashboardPage(
     
     tags$head(
       tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
-      tags$script(src = "custom.js")
+      tags$script(src = "custom.js"),
+      tags$style(HTML(".leaflet-container {background: #f8f8f6 !important;}"))
     ),
     
     tabItems(
       
       # =========================== ARZNEIMITTEL ===============================
+      
       tabItem(tabName = "arzneimittel",
               
               fluidRow(
@@ -59,11 +60,8 @@ ui <- dashboardPage(
                
                 
                 
-                box(width = 6, height = 250,
-                    
-                    timeTrendUI("plot1")
-                    
-                    )
+                box(width = 6, height = 250, 
+                    timeTrendUI("plot1"))
               
               ),
               
@@ -82,26 +80,31 @@ ui <- dashboardPage(
                                           ),
                                    
                                    column(width = 3,
-                                          plotOutput("plot3", height = 250)
+                                          modelUI("plot3")
                                           ),
                                    
                                    column(width = 4,
-                                          plotOutput("plot4", height = 250)
+                                          netzUI("plot4")
                                           )
                                   ),
                           
                           br(),
                           
-                          fluidRow(
-                            
-                            column(width = 5,
-                                   p("alksjdflas jalsdkjfas lkjs dflasdkfj sdfkljsd.")
-                                  ),
-                            
-                            column(width = 7,
-                                   plotOutput("plot5", height = 280)
-                                  )
-                                )
+                          chloroplethUI("chloropleth")
+                          
+                          # fluidRow(
+                          #   
+                          #   column(width = 5,
+                          #          #p("alksjdflas jalsdkjfas lkjs dflasdkfj sdfkljsd.")
+                          #          chloroplethUI("plotmap")
+                          #         ),
+                          #   
+                          #   column(width = 7,
+                          #          #plotOutput("plot5", height = 280)
+                          #          chloroplethUI("plotbar")
+                          #         )
+                          #       )
+                          
                           )
                       )
 
@@ -109,57 +112,28 @@ ui <- dashboardPage(
       
       
       # ============================ DIABETES ==================================
+      
       tabItem(tabName = "diabetes",
               h2("Diabetes tab content")
       ),
       
       
       # ============================ PRÄVENTION ================================
+      
       tabItem(tabName = "prevention",
               h2("Prävention tab content")
       ),
       
       
       # ============================ METHODIK ==================================
+      
       tabItem(tabName = "methodik",
-              h2("Methodik"),
-              br(), br(),
-              h4("Arzneitmittel Indikatoren"),
-              p("Patientengruppen mit potenziell unangemessener PPI-Behandlung wurden 
-                mittels PIPPI bei einer Stichprobe von Patienten mit ≥1 PPI-Verschreibung erfasst.
-                Unangemessene Dosierungen wurden nach der Definition von Muheim et al. 2021 bestimmt,
-                welche durch eine Mindestdosis von 11,5 g Pantoprazol-Äquivalenten 
-                während 365 aufeinanderfolgender Tage definiert wird. 
-                PIOs wurden anhand einer Patientenstichprobe mit ≥2 Verschreibungen 
-                von Schmerzmedikamenten mit einer Verschreibungslücke von ≤4 Wochen 
-                (auch quartalsübergreifend) pro Quartalsjahr evaluiert.
-                Krebspatienten, Patienten in palliativer Betreuung oder in
-                Opioid-Substitutionsprogrammen wurden ausgeschlossen. 
-                PIOs wurden durch die Verschreibung von ≥2 schwachen oder starken 
-                Opioiden mit einer Verschreibungslücke von ≤4 Wochen pro Quartalsjahr definiert. 
-                PIM und Polypharmazie (Verschreibung von ≥5 verschiedenen Wirkstoffen, d.h. ATC-Codes) 
-                stellen Arzneimittelsicherheitsmaße bei Patienten ab 65 Jahren mit 
-                ≥1 Medikamentenverschreibung im jeweiligen Jahr dar. Diese wurden 
-                pro Quartalsjahr evaluiert und auf Jahresebene aggregiert 
-                (bei ≥1 PIM oder Polypharmazie pro Jahr). 
-                PIMs wurden basierend auf den Beers und PRISCUS Kriterien bewertet
-                und umfassen Medikamente, die bei älteren Personen aufgrund 
-                erhöhter Risiken unerwünschter Ereignisse und mangelnder 
-                Wirksamkeitsnachweise vermieden werden sollten, 
-                wenn alternative Medikation verfügbar ist."),
-              p("Allgemein: Patienten, die verstorben waren, schwanger waren, 
-                im Ausland oder in einem Pflegeheim lebten oder die jünger als 18 
-                bzw. älter als 85 Jahre waren, 
-                wurden von der Analyse ausgeschlossen. 
-                Für die Analyse wurden drei Stichproben gebildet, 
-                wobei ergebnisspezifische Ausschlusskriterien zur Bestimmung der 
-                jeweiligen Ergebnisse zur Arzneimittelsicherheit angewendet wurden."),
-              tags$a(href = 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0311099', 
-                        "Farcher et al. (2024)")
+              methodik_text() # R/ methodik_text.R
       ),
       
       
-      # ============================ PUBLIKATIONEN =============================
+      # ============================ PUBLIKATIONEN =============================¨
+      
       tabItem(tabName = "publikationen",
               h2("Publikationen tab content")
       )

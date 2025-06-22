@@ -3,7 +3,7 @@
 # ==================================== UI ======================================
 
 ageSexUI <- function(id) {
-  plotOutput(NS(id, "plot2"), height = 250)
+  girafeOutput(NS(id, "plot2"), height = 250)
 }
 
 
@@ -16,14 +16,15 @@ ageSexServer <- function(id, qi, year) {
   
   moduleServer(id, function(input, output, session) {
     
-    percent_qi <- reactive(d.age_sex |> 
-                             filter(QI == qi()) |> 
-                             filter(year == year()) |> 
-                             pull(percent))
+    data <- reactive(d.age_sex |> 
+                        filter(QI == qi()) |> 
+                        filter(year == year())
+                     )
     
-    output$plot2 <- renderPlot({
+    output$plot2 <- renderGirafe({
       
-      hist(percent_qi(), col = "violet")
+      age_sex_plot(data = data())
+      #hist(percent_qi(), col = "violet")
       
     })
   })

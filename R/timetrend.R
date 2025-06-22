@@ -2,7 +2,7 @@
 # ==================================== UI ======================================
 
 timeTrendUI <- function(id) {
-  plotOutput(NS(id, "plot1"), height = 210)
+  plotOutput(NS(id, "plot1"), height = 220)
 }
 
 
@@ -14,11 +14,12 @@ timeTrendServer <- function(id, qi) {
   
   moduleServer(id, function(input, output, session) {
     
-    percent_qi <- reactive(d.overall$percent[d.overall$QI == qi()])
+    percent_qi <- reactive(d.overall |> 
+                             filter(QI == qi()))
     
     output$plot1 <- renderPlot({
 
-      hist(percent_qi())
+      timetrend_plot(data = percent_qi())
       
     })
   })
