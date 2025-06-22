@@ -3,18 +3,14 @@
 
 server <- function(input, output) {
   
+  
+  
+  timeTrendServer("plot1", reactive(input$qi))
+  
+  ageSexServer("plot2", reactive(input$qi), reactive(input$year))
+  
   set.seed(122)
   histdata <- rnorm(500)
-  
-  output$plot1 <- renderPlot({
-    data <- histdata[seq_len(10)]
-    hist(data)
-  })
-  
-  output$plot2 <- renderPlot({
-    data <- histdata[seq_len(10)]
-    hist(data, col = "violet")
-  })
   
   output$plot3 <- renderPlot({
     data <- histdata[seq_len(10)]

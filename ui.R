@@ -48,7 +48,7 @@ ui <- dashboardPage(
                     
                     column(width = 5,
                     
-                           selectInput("indikator", "Indikator:", 
+                           selectInput("qi", "Indikator:", 
                                        c("PIPPI", "PIO", "PIM", "POLY"),
                                        selected = "PIPPI")
                     ),
@@ -61,7 +61,7 @@ ui <- dashboardPage(
                 
                 box(width = 6, height = 250,
                     
-                    plotOutput("plot1", height = 210)
+                    timeTrendUI("plot1")
                     
                     )
               
@@ -72,13 +72,13 @@ ui <- dashboardPage(
                       box(width = 12, height = 570,
                           
                           fluidRow(column(width = 1,
-                                          selectInput("jahr", "Jahr:", 
+                                          selectInput("year", "Jahr:", 
                                                       c(2014:2024),
                                                       selected = 2024)
                                           ),
                                    
                                    column(width = 4, 
-                                          plotOutput("plot2", height = 250)
+                                          ageSexUI("plot2")
                                           ),
                                    
                                    column(width = 3,
