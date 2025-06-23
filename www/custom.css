@@ -168,4 +168,48 @@
     font-size: 16px !important;
   }
 
+/* =============================== TAB BOXES =================================*/
 
+ .nav-tabs-custom {
+  border-radius: 15px !important;
+  background-color: #f8f8f6 !important;
+  border: 2px solid #eef0f2 !important;
+  box-shadow: none !important;
+}
+
+/* Tab header area (removes default border) */
+.nav-tabs-custom > .nav-tabs {
+  border: none !important;
+}
+
+/* Tab content area */
+.nav-tabs-custom > .tab-content {
+  border-radius: 0 0 15px 15px !important;
+  background-color: #f8f8f6 !important;
+  border-top: none !important;
+}
+
+/* ACTIVE tab header (the tab itself) */
+.nav-tabs-custom > .nav-tabs > li.active > a,
+.nav-tabs-custom > .nav-tabs > li.active > a:focus,
+.nav-tabs-custom > .nav-tabs > li.active > a:hover {
+  background-color: #f8f8f6 !important; /* green */
+  color: #7B9790 !important;
+  border: none !important;
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+}
+
+/* INACTIVE tab headers */
+.nav-tabs-custom > .nav-tabs > li > a {
+  background-color: #f8f8f6 !important;
+  color: #C7C9CB !important;
+  border: none !important;
+}
+
+/* Remove the default blue bar on the left of the active tab */
+.nav-tabs-custom > .nav-tabs > li.active {
+  border-left: 3px solid #eef0f2 !important; 
+  border-right: 3px solid #eef0f2 !important; 
+  border-top-color: #1d453b !important;
+}

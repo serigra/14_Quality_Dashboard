@@ -42,21 +42,20 @@ chloroplethServer <- function(id, qi, year) {
           dashArray = "3",
           fillOpacity = 0.7,
           layerId = ~kanton,  # enables hover/click interactivity
-        
-        highlightOptions = highlightOptions(
-              weight = 5,
-              color = "#666",
-              dashArray = "",
-              fillOpacity = 0.7,
-              bringToFront = TRUE),
-
-            label = prep$labels,
-            labelOptions = labelOptions(
-              style = list("font-weight" = "normal", padding = "3px 8px"),
-              textsize = "15px",
-              direction = "auto")
+          
+          highlightOptions = highlightOptions(
+            weight = 4,
+            color = "#1d453b",
+            dashArray = "",
+            fillOpacity = 0.7,
+            bringToFront = TRUE),
+          
+          label = prep$labels,
+          labelOptions = labelOptions(
+            style = list("font-weight" = "normal", padding = "3px 8px"),
+            textsize = "15px",
+            direction = "auto")
         ) %>%
-        
         addLegend(pal = prep$pal, values = prep$sf$percent, opacity = 0.7, title = NULL,
                   position = "bottomright") %>%
         setView(lng = 8.2, lat = 46.8, zoom = 7.0)
@@ -75,11 +74,11 @@ chloroplethServer <- function(id, qi, year) {
       highlight_kanton <- rv$hovered_kanton
       
       # Default color for all bars
-      plot_data$color <- "rgba(100,140,130,0.5)"
+      plot_data$color <- "#afc1bc"
       
       # If a canton is hovered, highlight only that bar
       if (!is.null(highlight_kanton) && highlight_kanton %in% plot_data$kanton) {
-        plot_data$color[plot_data$kanton == highlight_kanton] <- "rgba(255,0,0,0.7)"
+        plot_data$color[plot_data$kanton == highlight_kanton] <- "#1d453b"
       }
       
       plot_ly(
@@ -88,7 +87,7 @@ chloroplethServer <- function(id, qi, year) {
         y = ~percent,
         type = 'bar',
         marker = list(color = plot_data$color,
-                      line = list(color = 'rgba(40,60,50,1)', width = 2))
+                      line = list(color = '#1d453b', width = 2))
       ) |> 
         layout(
           yaxis = list(

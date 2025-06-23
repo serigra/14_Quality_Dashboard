@@ -11,6 +11,11 @@ ui <- dashboardPage(
   dashboardSidebar(
     
     sidebarMenu(
+      menuItem("Hintergrund", tabName = "hintergrund"),
+      menuItem("Entwicklung", tabName = "entwicklung"),
+     
+      hr(),
+      
       menuItem("Themenfeld", tabName = "themenfeld",
                menuSubItem("Arzeimittel", tabName = "arzneimittel"),
                menuSubItem("Diabetes",    tabName = "diabetes"),
@@ -39,28 +44,96 @@ ui <- dashboardPage(
     
     tabItems(
       
+      # ============================ HINTERGRUND ===============================
+  
+      tabItem(tabName = "hintergrund",
+              h2("Hintergrund tab content")
+      ),
+      
+      # ============================ ENTWICKLUNG ===============================
+      
+      tabItem(tabName = "entwicklung",
+              
+              tabBox(
+                
+                id = "tabset1", 
+                height = "100vh", width = 12,
+                
+                tabPanel("1 Challenges", 
+                         
+                         br(), 
+                         
+                         h4("Grosses Angebot an Packages und Widgets - Was passt am besten?"),
+                         
+                         hr(),
+                         
+                         tags$img(src = "packages.png", style = "max-width:60%; height:auto;"),
+                         
+                         hr(),
+                         
+                         tags$img(src = "widgets.png", style = "max-width:70%; height:auto;"),
+                        
+                         ),
+                
+                tabPanel("2 Think & Design", 
+                         
+                         br(), 
+                         
+                         h4(
+                           "Erste Skizze des Dashboards: ",
+                           tags$a("excalidraw.com", href = "https://excalidraw.com/#json=OYC1khHWhkh4ZmVtYbUti,yYR0dNhBFCbqH758_zuNVQ", target = "_blank"),
+                           " and ", 
+                           tags$a("shinydraw library", href = "https://github.com/MikeJohnPage/shinydraw", target = "_blank"),
+                           " by Mike Page."
+                         ),
+                         
+                         br(), 
+                         
+                         tags$img(src = "skizze_dashboard.png", style = "max-width:90%; height:auto;"),
+                         
+                         ),
+                tabPanel("3 Involve Stakeholders", 
+                         
+                         tags$img(src = "stakeholders.png", style = "max-width:80%; height:auto;"),
+                         
+                         ),
+                tabPanel("4 Architecture", 
+                         br(),
+                         tags$img(src = "architecture.png", style = "max-width:90%; height:auto;")
+                         
+                         )
+              )  
+              
+              
+              
+              
+      ),
+      
       # =========================== ARZNEIMITTEL ===============================
       
       tabItem(tabName = "arzneimittel",
               
               fluidRow(
                 
-                box(width = 6,  height = 250,
+                box(width = 6,  height = 260,
                     
-                    column(width = 5,
+                    column(width = 3,
                     
-                           selectInput("qi", "Indikator:", 
+                           selectInput("qi", "Indikator", 
                                        c("PIPPI", "PIO", "PIM", "POLY"),
                                        selected = "PIPPI")
                     ),
                     
-                    column(width = 7,
-                           p("somasdflkja klasjfksd jklsdjf asdlf jksljf slf lksdjf."))
+                    column(width = 9,
+                           h5(strong(textOutput("qi_summary"))),
+                           p(htmlOutput("qi_description")),
+                           p(htmlOutput("qi_publikationen"))
+                           )
                     ),
                
                 
                 
-                box(width = 6, height = 250, 
+                box(width = 6, height = 260, 
                     timeTrendUI("plot1"))
               
               ),
@@ -125,8 +198,6 @@ ui <- dashboardPage(
       tabItem(tabName = "publikationen",
               h2("Publikationen tab content")
       )
-      
-      
       
     )
   )
