@@ -10,6 +10,8 @@ library(monochromeR)
 library(leaflet)
 library(sf)
 
+library(crosstalk)
+
 # deploy app on shinyapps.io
 #library(rsconnect)
 #rsconnect::deployApp('/Users/sereina/Documents/03_Projects/14_Quality_Dashboard')

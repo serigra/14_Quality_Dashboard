@@ -1,7 +1,7 @@
 
 
 
-chloropleth_plot <- function(data) {
+chloropleth_prep <- function(data) {
   
   min_percent <- floor(min(data$percent, na.rm = TRUE)/10) * 10
   max_percent <- ceiling(max(data$percent, na.rm = TRUE)/10) * 10
@@ -35,35 +35,40 @@ chloropleth_plot <- function(data) {
     swiss_cantons$NAME_1, swiss_cantons$percent
   ) %>% lapply(htmltools::HTML)
   
-
+  list(
+    sf = swiss_cantons,  # the sf object
+    pal = pal,           # color palette function
+    labels = labels      # HTML labels
+  )
   # build the map
-  plot <- leaflet(swiss_cantons, 
-          options = leafletOptions(zoomSnap = 0.1)) %>%
-    addPolygons(fillColor = ~pal(percent),
-                weight = 2,
-                opacity = 1,
-                color = "white",
-                dashArray = "3",
-                fillOpacity = 0.7,
+  # plot <- leaflet(swiss_cantons, 
+  #         options = leafletOptions(zoomSnap = 0.1)) %>%
+  #   addPolygons(fillColor = ~pal(percent),
+  #               weight = 2,
+  #               opacity = 1,
+  #               color = "white",
+  #               dashArray = "3",
+  #               fillOpacity = 0.7)  %>% 
+              # ,
+              #   
+              #   highlightOptions = highlightOptions(
+              #     weight = 5,
+              #     color = "#666",
+              #     dashArray = "",
+              #     fillOpacity = 0.7,
+              #     bringToFront = TRUE),
+              #   
+              #   label = labels,
+              #   labelOptions = labelOptions(
+              #     style = list("font-weight" = "normal", padding = "3px 8px"),
+              #     textsize = "15px",
+              #     direction = "auto") )  %>% 
                 
-                highlightOptions = highlightOptions(
-                  weight = 5,
-                  color = "#666",
-                  dashArray = "",
-                  fillOpacity = 0.7,
-                  bringToFront = TRUE),
-                
-                label = labels,
-                labelOptions = labelOptions(
-                  style = list("font-weight" = "normal", padding = "3px 8px"),
-                  textsize = "15px",
-                  direction = "auto")
-                
-                ) %>% 
-    addLegend(pal = pal, values = ~percent, opacity = 0.7, title = NULL,
-              position = "bottomright") %>% 
-    setView(lng = 8.2, lat = 46.8, zoom = 7.0) 
+               
+    # addLegend(pal = pal, values = ~percent, opacity = 0.7, title = NULL,
+    #           position = "bottomright") %>% 
+    # setView(lng = 8.2, lat = 46.8, zoom = 7.0) 
   
-    return(plot)
+    # return(plot)
 
 }
