@@ -1,10 +1,10 @@
 
-# Dashboard Ambulante Qualitätsindikatoren
+# Shiny Dashboard Skeleton
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of this dashboard is to keep track of certain quality indicators for primary care in Switzerland. 
+The main goal of this dashboard is to keep track of certain quality indicators for primary care in Switzerland. 
 The dashboard is built using R and the Shiny framework.
 The repository includes *only!* the dashboard application code. For privacy and data protection reasons, 
 the underlying data is not included and must be provided/ generated separately by users implementing the dashboard.
@@ -16,6 +16,7 @@ Some key publications are listed below:
 * [Blozik et al. 2022](https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-022-07893-8)
 
 
+Prototype sketch created with [excalidraw](https://excalidraw.com/) and the [shinydraw library](https://github.com/MikeJohnPage/shinydraw) by Mike Page.
 
 ![](www/skizze_dashboard.png)
 
