@@ -4,6 +4,12 @@ bar_plot <- function(data, variable, angle = 30, hjust = 0.5, col, width, height
   
   dark_col <- generate_palette(colour = col, modification = "go_darker", n_colours = 9)[5]
   
+  if (variable == "model") {
+    variable_name <- "Versicherungsmodell"
+  } else if (variable == "Netz") {
+    variable_name <- "Ärztenetz"
+  }
+  
   tooltip_css <- paste0("background-color:", dark_col, ";color:white;padding:5px;border-radius:3px;")
   
   qi_name <- unique(data$QI)
@@ -24,13 +30,13 @@ bar_plot <- function(data, variable, angle = 30, hjust = 0.5, col, width, height
       limits = c(0, upper_y_limit)
     ) +
     labs(
-      title = paste0(qi_name, " nach ", variable, " (", year_name, ")"),
+      title = variable_name,
       y = paste0(qi_name, "  Prävalenz"),
       x = ""
     ) +
     theme_minimal(base_size = 26) +
     theme(
-      plot.title = element_text(size = rel(1.2), face = "bold", hjust = 0.2),
+      plot.title = element_text(size = rel(1.15), hjust = -0.1, vjust = -4),
       axis.text.x = element_text(angle = angle, hjust = hjust),
       axis.text.y = element_text(),
       axis.title.y = element_text(),

@@ -46,7 +46,7 @@ entwicklung <- function() {
              
     ),
     tabPanel("4 Architecture", 
-             br(),
+             br(), br(),
              tags$img(src = "architecture.png", style = "max-width:90%; height:auto;")
              
     ),

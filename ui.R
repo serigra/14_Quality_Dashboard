@@ -6,7 +6,18 @@ library(tidyverse)
 
 ui <- dashboardPage(
   
-  dashboardHeader(title = "Ambulante Qualitätsindikatoren", titleWidth = 450),
+  dashboardHeader(title = "Ambulante Qualitätsindikatoren", titleWidth = 450,
+                  
+                  tags$li(
+                    a(
+                      href = "https://github.com/serigra/14_Quality_Dashboard", 
+                      icon("github"), 
+                      title = "View on GitHub",
+                      target = "_blank"
+                    ),
+                    class = "dropdown"
+                  )
+                  ),
   
   dashboardSidebar(
     
@@ -119,7 +130,7 @@ ui <- dashboardPage(
                       box(width = 12, height = 570,
                           
                           fluidRow(column(width = 1,
-                                          selectInput("year", "Jahr:", 
+                                          selectInput("year", "Jahr", 
                                                       c(2014:2024),
                                                       selected = 2024)
                                           ),
@@ -159,7 +170,7 @@ ui <- dashboardPage(
               
               div(
                 style = "text-align: center;",
-                tags$img(src = "wip.png", style = "max-width:30%; height:auto;")
+                tags$img(src = "wip.png", style = "max-width:25%; height:auto;")
               )
       ),
       
@@ -172,7 +183,7 @@ ui <- dashboardPage(
               
               div(
                 style = "text-align: center;",
-                tags$img(src = "wip.png", style = "max-width:30%; height:auto;")
+                tags$img(src = "wip.png", style = "max-width:25%; height:auto;")
               )
       ),
       

@@ -2,7 +2,7 @@ publikationen <- function() {
       
   output <- list(
     
-    h3("Publikationen rundum ambulante Qualitätsindikatoren"),
+    h3("Publikationen rundum die ambulanten SQIPRICA-Qualitätsindikatoren"),
     br(),
     tags$ul(class = "publications",
       
@@ -35,7 +35,7 @@ publikationen <- function() {
       
       tags$li(
         tags$a(
-          href = "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-023-09694-z#:~:text=care%20in%20Switzerland.-,Conclusion,care%20among%20patients%20with%20diabetes",
+          href = "https://pmc.ncbi.nlm.nih.gov/articles/PMC10308744/",
           "Farcher et al. 2023",
           class = "pub-link pub-link-block"
         ),

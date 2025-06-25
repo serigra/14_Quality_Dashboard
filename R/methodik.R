@@ -7,7 +7,7 @@ methodik <- function() {
   # ============================================================================
   h3("Entwicklung Qualitätsindikatoren"), 
   p("Das SQIPRICA-Projekt (Swiss Quality Indicator for Primary Care) wurde 2016 gegründet, 
-    um erstmals schweizweit einheitliche, evidenzbasierte Qualitätsindikatoren für 
+    um erstmals schweizweit einheitliche, evidenzbasierte Qualitätsindikatoren (QI) für 
     die Grundversorgung (auf Patientenebene) zu entwickeln. 
     Potenzielle Indikatoren aus der Fachliteratur wurden von einer 
     internationalen Expertengruppe bewertet und an das Schweizer Gesundheitssystem angepasst, 
@@ -24,46 +24,42 @@ methodik <- function() {
   hr(),
   
   # ============================================================================
-  h3("Definition Qualitätsindikatoren"),
-  h4("Arzneimittelsicherheit"),
-  p("Patientengruppen mit potenziell unangemessener PPI-Behandlung wurden 
-                  mittels PIPPI bei einer Stichprobe von Patienten mit ≥1 PPI-Verschreibung erfasst.
-                  Unangemessene Dosierungen wurden nach der Definition von Muheim et al. 2021 bestimmt,
-                  welche durch eine Mindestdosis von 11,5 g Pantoprazol-Äquivalenten 
-                  während 365 aufeinanderfolgender Tage definiert wird. 
-                  PIOs wurden anhand einer Patientenstichprobe mit ≥2 Verschreibungen 
-                  von Schmerzmedikamenten mit einer Verschreibungslücke von ≤4 Wochen 
-                  (auch quartalsübergreifend) pro Quartalsjahr evaluiert.
-                  Krebspatienten, Patienten in palliativer Betreuung oder in
-                  Opioid-Substitutionsprogrammen wurden ausgeschlossen. 
-                  PIOs wurden durch die Verschreibung von ≥2 schwachen oder starken 
-                  Opioiden mit einer Verschreibungslücke von ≤4 Wochen pro Quartalsjahr definiert. 
-                  PIM und Polypharmazie (Verschreibung von ≥5 verschiedenen Wirkstoffen, d.h. ATC-Codes) 
-                  stellen Arzneimittelsicherheitsmaße bei Patienten ab 65 Jahren mit 
-                  ≥1 Medikamentenverschreibung im jeweiligen Jahr dar. Diese wurden 
-                  pro Quartalsjahr evaluiert und auf Jahresebene aggregiert 
-                  (bei ≥1 PIM oder Polypharmazie pro Jahr). 
-                  PIMs wurden basierend auf den Beers und PRISCUS Kriterien bewertet
-                  und umfassen Medikamente, die bei älteren Personen aufgrund 
-                  erhöhter Risiken unerwünschter Ereignisse und mangelnder 
-                  Wirksamkeitsnachweise vermieden werden sollten, 
-                  wenn alternative Medikation verfügbar ist."),
-  p("Allgemein: Patienten, die verstorben waren, schwanger waren, 
-                  im Ausland oder in einem Pflegeheim lebten oder die jünger als 18 
-                  bzw. älter als 85 Jahre waren, 
-                  wurden von der Analyse ausgeschlossen. 
-                  Für die Analyse wurden drei Stichproben gebildet, 
-                  wobei ergebnisspezifische Ausschlusskriterien zur Bestimmung der 
-                  jeweiligen Ergebnisse zur Arzneimittelsicherheit angewendet wurden."),
-  tags$a(href = 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0311099', 
-         "Farcher et al. (2024)"),
+  h3("Definitionen Qualitätsindikatoren"),
+  
   br(),
+  
+  h4("Arzneimittelsicherheit"),
+  p("Zur Bewertung der Arzneimittelsicherheit erfassen die vier entsprechenden Qualitätsindikatoren
+    die Prävalenzen von potenziell problematischen Verschreibungsmustern, 
+    die gemäß Leitlinien vermieden werden sollten (PIPPI potenziell inadäquate Protonenpumpenhemmer-Verschreibungen, 
+    PIO potenziell inadäquate Opioid-Verschreibungen, PIM potenziell inadäquate Medikation bei älteren Menschen sowie 
+    POLY Polypharmazie bei älteren Menschen). Die QIs geben den Prozentsatz der Patient:innen wieder, 
+    bei denen potenziell kritische Verschreibungen vorliegen und somit die 
+    Arzneimittelsicherheit beeinträchtigt sein könnte."),
+  "Publikationen:",
+  tags$a(href = 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8053831/', 
+         "Muheim et al. 2021"),
+  tags$a(href = 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0311099', 
+         "Farcher et al. 2024"),
+  
+  br(),br(),
+  
   h4("Diabetes"),
+  p("Zur Bewertung der Behandlung von Diabetespatient:innen erfassen die vier entsprechenden
+    Qualitätsindikatoren die Prävalenzen von zentralen Kontrolluntersuchungen 
+    , die gemäss Leitlinien empfohlen werden (Blutzucker, 2 mal jährlich empfohlen; 
+    Blutfett, Nierenstatus und Augenkontrolle, jeweils 1 mal jährlich emfohlen). 
+    Die QIs geben den Prozentsatz der Diabetespatient:innen wieder, 
+    deren Behandlung den fachlichen Standards entspricht.  
+    Ein zusätzlicher Gesamtindikator bewertet die vollständige Leitlinienkonformität über alle Untersuchungen hinweg."),
+  "Publikationen:",
+  tags$a(href = 'https://pubmed.ncbi.nlm.nih.gov/32332005/', "Huber et al. 2020"), "; ",
+  tags$a(href = 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10308744/', "Farcher et al. 2023"),
  
   hr(),
   
   # ============================================================================
-  h3("Prävalenz"),
+  h3("Prävalenzen"),
   p("Alle gegeben Prozentzahlen repräsentieren 12-Monatsprävalenzen. 
     Die 12-Monatsprävalenz gibt den Anteil der Personen in einer definierten Population an, 
     die innerhalb eines Jahres ein bestimmtes Ereignis oder Merkmal aufweisen. 

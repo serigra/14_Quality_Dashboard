@@ -106,8 +106,21 @@ chloroplethServer <- function(id, qi, year) {
               y0 = mean_value,
               y1 = mean_value,
               line = list(color = "rgba(40,80,70,0.8)", width = 4, dash = "dash")
-            )
-          ),
+            )),
+            annotations = list(
+              list(
+                x = -0.5,  # leftmost position
+                y = mean_value + 0.5,
+                text = paste0("CH: ", sprintf("%.1f%%", mean_value)),
+                xref = "x",
+                yref = "y",
+                showarrow = FALSE,
+                xanchor = "left",
+                yanchor = "bottom",
+                font = list(size = 14, color = "rgba(40,80,70,0.8)")
+              )
+          )
+          ,
           plot_bgcolor = '#f8f8f6',
           paper_bgcolor = '#f8f8f6',  
           bargap = 0.3

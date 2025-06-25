@@ -14,7 +14,7 @@
   background-color: #afc1bc !important; /* Forest green, change as needed */
   
   /*border-radius: 0 0 18px 18px !important; */
-  width: 85% !important; 
+  /*width: 85% !important; */
   box-shadow: 0 4px 16px transparent; /* subtle shadow for separation */
   position: relative;
   z-index: 1001; 

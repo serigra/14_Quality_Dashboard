@@ -6,8 +6,8 @@ timetrend_plot <- function(data){
   
   plot <- data |> 
     ggplot( aes(x = year, y = percent)) +
-    geom_line(linewidth = 0.5, color = "#4b6b6b") +
-    geom_point(size = 6, color = "#4b6b6b", fill = '#afc1bc') +
+    geom_line(linewidth = 1, color = "#1d453b") +
+    geom_point(size = 6, color = "#1d453b", fill = '#afc1bc', shape = 21, stroke = 1.5) +
     geom_text(aes(label = paste0(percent, "%")), 
               vjust = -1.5, 
               size = 5, 

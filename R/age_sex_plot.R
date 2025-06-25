@@ -46,13 +46,13 @@ age_sex_plot <- function(data){
     ) +
     scale_fill_manual(values = c("Female" = "#b1a2b6", "Male" = "#8fa4b5")) +
     labs(
-      title = paste0(qi_name, " nach Alter & Geschlecht (", year_name, ")"),
+      title = "Alter & Geschlecht",
       y = paste0(qi_name, "  Prävalenz"),
       x = ""
     ) +
     theme_minimal(base_size = 24) +
     theme(
-      plot.title = element_text(size = rel(1.2), face = "bold", hjust = 0.2),
+      plot.title = element_text(size = rel(1.2), hjust = -0.1, vjust = -6),
       axis.text.x = element_text(angle = 30, hjust = 0.5),
       axis.text.y = element_text(),
       axis.title.y = element_text(),
