@@ -1,11 +1,23 @@
 
-methodik_text <- function() {
+methodik <- function() {
 
   output <- list(
   
   h2("Methodik"),
-  br(), br(),
-  h4("Arzneitmittel Indikatoren"),
+  br(),
+  
+  # ============================================================================
+  h3("Entiwcklung Qualitätsindikatoren"), 
+  
+  br(), 
+  
+  hr(),
+  
+  br(),
+  
+  # ============================================================================
+  h3("Definition Qualitätsindikatoren"),
+  h4("Medikationssicherheit"),
   p("Patientengruppen mit potenziell unangemessener PPI-Behandlung wurden 
                   mittels PIPPI bei einer Stichprobe von Patienten mit ≥1 PPI-Verschreibung erfasst.
                   Unangemessene Dosierungen wurden nach der Definition von Muheim et al. 2021 bestimmt,
@@ -37,10 +49,18 @@ methodik_text <- function() {
                   jeweiligen Ergebnisse zur Arzneimittelsicherheit angewendet wurden."),
   tags$a(href = 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0311099', 
          "Farcher et al. (2024)"),
+  br(),
+  h4("Diabetes"),
+ 
   
+  br(), 
   
-  br(), br(),
-  h4("R Packages"),
+  hr(),
+  
+  br(),
+  
+  # ============================================================================
+  h3("Entwicklung Dashboard - R Packages"),
   p("shiny, shinydashboard, ggplot2, ggiraph, plotly, leaflet")
 )
   return(output)

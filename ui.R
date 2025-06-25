@@ -36,77 +36,50 @@ ui <- dashboardPage(
   
   dashboardBody(
     
+    # ===================== Custom CSS and JS files ============================
     tags$head(
       tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
       tags$script(src = "custom.js"),
-      tags$style(HTML(".leaflet-container {background: #f8f8f6 !important;}"))
+      # background of leaflet Swiss map same
+      tags$style(HTML(".leaflet-container {background: #f8f8f6 !important;}")),
+      # vertical distance between bulleted list of publications
+      tags$style(HTML("
+              ul.publications {
+                display: flex;
+                flex-direction: column;
+                gap: 1.2em;
+              }")),
+      # hover link changing color
+      tags$style(HTML("
+              .pub-link {
+                color: #7B9790;
+                font-size: 1.15em;
+                font-weight: bold;
+                text-decoration: none;
+                transition: color 0.2s;
+              }
+              .pub-link:hover {
+                color: #afc1bc; /* a lighter green for hover */
+              }
+              .pub-link-block {
+                margin-bottom: 0.2em;
+                display: block;
+              } "))
     ),
+    
     
     tabItems(
       
       # ============================ HINTERGRUND ===============================
   
       tabItem(tabName = "hintergrund",
-              h2("Hintergrund tab content")
+              hintergrund() # R/ hintergrund.R
       ),
       
       # ============================ ENTWICKLUNG ===============================
       
       tabItem(tabName = "entwicklung",
-              
-              tabBox(
-                
-                id = "tabset1", 
-                height = "100vh", width = 12,
-                
-                tabPanel("1 Challenges", 
-                         
-                         br(), 
-                         
-                         h4("Grosses Angebot an Packages und Widgets - Was passt am besten?"),
-                         
-                         hr(),
-                         
-                         tags$img(src = "packages.png", style = "max-width:60%; height:auto;"),
-                         
-                         hr(),
-                         
-                         tags$img(src = "widgets.png", style = "max-width:70%; height:auto;"),
-                        
-                         ),
-                
-                tabPanel("2 Think & Design", 
-                         
-                         br(), 
-                         
-                         h4(
-                           "Erste Skizze des Dashboards: ",
-                           tags$a("excalidraw.com", href = "https://excalidraw.com/#json=OYC1khHWhkh4ZmVtYbUti,yYR0dNhBFCbqH758_zuNVQ", target = "_blank"),
-                           " and ", 
-                           tags$a("shinydraw library", href = "https://github.com/MikeJohnPage/shinydraw", target = "_blank"),
-                           " by Mike Page."
-                         ),
-                         
-                         br(), 
-                         
-                         tags$img(src = "skizze_dashboard.png", style = "max-width:90%; height:auto;"),
-                         
-                         ),
-                tabPanel("3 Involve Stakeholders", 
-                         
-                         tags$img(src = "stakeholders.png", style = "max-width:80%; height:auto;"),
-                         
-                         ),
-                tabPanel("4 Architecture", 
-                         br(),
-                         tags$img(src = "architecture.png", style = "max-width:90%; height:auto;")
-                         
-                         )
-              )  
-              
-              
-              
-              
+              entwicklung() # R/ entwicklung.R
       ),
       
       # =========================== ARZNEIMITTEL ===============================
@@ -117,14 +90,14 @@ ui <- dashboardPage(
                 
                 box(width = 6,  height = 260,
                     
-                    column(width = 3,
+                    column(width = 2,
                     
                            selectInput("qi", "Indikator", 
                                        c("PIPPI", "PIO", "PIM", "POLY"),
                                        selected = "PIPPI")
                     ),
                     
-                    column(width = 9,
+                    column(width = 10,
                            h5(strong(textOutput("qi_summary"))),
                            p(htmlOutput("qi_description")),
                            p(htmlOutput("qi_publikationen"))
@@ -189,14 +162,19 @@ ui <- dashboardPage(
       # ============================ METHODIK ==================================
       
       tabItem(tabName = "methodik",
-              methodik_text() # R/ methodik_text.R
+              box(height = "90vh", width = 12,
+                  methodik() # R/ methodik.R
+              )
       ),
       
       
       # ============================ PUBLIKATIONEN =============================¨
       
       tabItem(tabName = "publikationen",
-              h2("Publikationen tab content")
+              
+              box(height = "90vh", width = 12,
+                  publikationen() # R/ publikationen.R
+              )
       )
       
     )

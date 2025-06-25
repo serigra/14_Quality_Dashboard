@@ -10,7 +10,7 @@ library(monochromeR)
 library(leaflet)
 library(sf)
 
-library(crosstalk)
+
 
 # deploy app on shinyapps.io
 #library(rsconnect)
