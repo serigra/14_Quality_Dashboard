@@ -9,7 +9,7 @@ publikationen <- function() {
       tags$li(
         tags$a(
           href = "https://link.springer.com/article/10.1186/s12913-018-3477-z",
-          "Blozik et al. 2020",
+          "Blozik et al. 2018",
           class = "pub-link pub-link-block"
         ),
         "Evidence-based indicators for the measurement of quality of primary care using health insurance claims data in Switzerland: results of a pragmatic consensus process."

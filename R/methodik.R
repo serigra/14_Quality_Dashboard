@@ -3,21 +3,29 @@ methodik <- function() {
 
   output <- list(
   
-  h2("Methodik"),
-  br(),
-  
+
   # ============================================================================
-  h3("Entiwcklung Qualitätsindikatoren"), 
-  
-  br(), 
+  h3("Entwicklung Qualitätsindikatoren"), 
+  p("Das SQIPRICA-Projekt (Swiss Quality Indicator for Primary Care) wurde 2016 gegründet, 
+    um erstmals schweizweit einheitliche, evidenzbasierte Qualitätsindikatoren für 
+    die Grundversorgung (auf Patientenebene) zu entwickeln. 
+    Potenzielle Indikatoren aus der Fachliteratur wurden von einer 
+    internationalen Expertengruppe bewertet und an das Schweizer Gesundheitssystem angepasst, 
+    und basierend auf Krankeversicherungsdaten auf Umsetzbarkeit geprüft.
+    Total wurden 34 Qualitätsindikatoren identifiziert, die verschiedene Bereiche 
+    der Grundversorgung abdecken: Arzneimittelsicherheit, Betreuung älterer Patienten, 
+    ärztliche Effizienz und Management chronischer Krankheiten. 
+    Total 8 dieser Qualitätsindikatoren sind Teil vom vorliegenden Monitoring-Dashbaord."),
+  "Der Entwicklungsprozess und alle Details zu den Indikatoren sind in folgenden zwei Publikationen beschrieben:",
+  tags$a(href = 'https://link.springer.com/article/10.1186/s12913-018-3477-z', "Blozik et al. (2018)"),
+  "; ",
+  tags$a(href = 'https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-022-07893-8', "Blozik et al. (2022)"),
   
   hr(),
   
-  br(),
-  
   # ============================================================================
   h3("Definition Qualitätsindikatoren"),
-  h4("Medikationssicherheit"),
+  h4("Arzneimittelsicherheit"),
   p("Patientengruppen mit potenziell unangemessener PPI-Behandlung wurden 
                   mittels PIPPI bei einer Stichprobe von Patienten mit ≥1 PPI-Verschreibung erfasst.
                   Unangemessene Dosierungen wurden nach der Definition von Muheim et al. 2021 bestimmt,
@@ -52,16 +60,20 @@ methodik <- function() {
   br(),
   h4("Diabetes"),
  
-  
-  br(), 
-  
   hr(),
   
-  br(),
-  
   # ============================================================================
-  h3("Entwicklung Dashboard - R Packages"),
-  p("shiny, shinydashboard, ggplot2, ggiraph, plotly, leaflet")
+  h3("Prävalenz"),
+  p("Alle gegeben Prozentzahlen repräsentieren 12-Monatsprävalenzen. 
+    Die 12-Monatsprävalenz gibt den Anteil der Personen in einer definierten Population an, 
+    die innerhalb eines Jahres ein bestimmtes Ereignis oder Merkmal aufweisen. 
+    Beim Qualitätsindikator PIM zeigt sie beispielsweise, wie viele Prozent aller 
+    Versicherten über 65 Jahre mit mindestens einer Medikamentenverschreibung im Laufe von 12 Monaten 
+    eine potenziell inadäquate Medikation verschrieben bekommen haben."),
+  p("Alle 12-Monatsprävalenzen - mit Ausanhme der Prävalenzen nach Alters- und Geschlechtsgruppen - 
+    sind adjustiert für die Alters- und Geschlechtsverteilung der jeweiligen Gruppen/ Populationen."),
+  
+  br()
 )
   return(output)
 }

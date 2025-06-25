@@ -17,9 +17,9 @@ ui <- dashboardPage(
       hr(),
       
       menuItem("Themenfeld", tabName = "themenfeld",
-               menuSubItem("Arzeimittel", tabName = "arzneimittel"),
+               menuSubItem("Arzneimittel", tabName = "arzneimittel"),
                menuSubItem("Diabetes",    tabName = "diabetes"),
-               menuSubItem("Prävention",  tabName = "prevention") 
+               menuSubItem("...",    tabName = "other")
       ),
       menuItem("Methodik", tabName = "methodik"),
       menuItem("Publikationen", tabName = "publikationen")
@@ -40,6 +40,9 @@ ui <- dashboardPage(
     tags$head(
       tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
       tags$script(src = "custom.js"),
+      
+      ## TODO --> shift to custom.css
+      
       # background of leaflet Swiss map same
       tags$style(HTML(".leaflet-container {background: #f8f8f6 !important;}")),
       # vertical distance between bulleted list of publications
@@ -136,9 +139,11 @@ ui <- dashboardPage(
                           
                           br(),
                           
-                          chloroplethUI("chloropleth")
+                          chloroplethUI("chloropleth"),
                           
-                          
+                          footer = tags$div("Alle 12-Monatsprävalenzen sind für Alter und Geschlecht adjustiert, 
+                                            ausgenommen sind die Prävalenzen in der Darstellung nach Alter und Geschlecht.", 
+                                            style = "font-size: 0.85em; text-align: right; background-color: #f8f8f6; color:  #9b9c9d; margin: -15px -12px -15px -12px; padding: 10px; border-radius: 0 0px 15px 15px; border: 2px solid #eef0f2 !important;")
                           )
                       )
 
@@ -148,15 +153,29 @@ ui <- dashboardPage(
       # ============================ DIABETES ==================================
       
       tabItem(tabName = "diabetes",
-              h2("Diabetes tab content")
+              br(), br(),
+              br(), br(),
+              br(), br(),
+              
+              div(
+                style = "text-align: center;",
+                tags$img(src = "wip.png", style = "max-width:30%; height:auto;")
+              )
       ),
       
+      # =========================== ... (OTHER) ================================
       
-      # ============================ PRÄVENTION ================================
-      
-      tabItem(tabName = "prevention",
-              h2("Prävention tab content")
+      tabItem(tabName = "other",
+              br(), br(),
+              br(), br(),
+              br(), br(),
+              
+              div(
+                style = "text-align: center;",
+                tags$img(src = "wip.png", style = "max-width:30%; height:auto;")
+              )
       ),
+      
       
       
       # ============================ METHODIK ==================================

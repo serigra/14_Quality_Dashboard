@@ -7,14 +7,14 @@ hintergrund <- function() {
     id = "tabset1", 
     height = "90vh", width = 12,
     
-    tabPanel("1", 
+    tabPanel("1 Gesundheitssystem Schweiz", 
              br(),
              h3("Gesundheitssytem Schweiz: Teuer, Gut und Intransparent"),
              br(),
              tags$img(src = "hintergrund_1.png", style = "max-width:70%; height:auto;")
     ),
     
-    tabPanel("> 2", 
+    tabPanel("2 Gesundheitsdaten", 
              column(width = 7,
                     br(),
                     h3("Gesundheitssytem Schweiz: Daten"),
@@ -34,21 +34,26 @@ hintergrund <- function() {
              )
     ),
     
-    tabPanel("> 3",
-             br(),
-             h3("Versicherungsdaten-Schatz!"),
-             br(),
-             tags$img(src = "claims_data.png", style = "max-width:90%; height:auto;")
+    tabPanel("3 Versicherungsdaten",
+             br(),br(),br(),br(),
+ 
+             tags$img(src = "claims_data.png", style = "max-width:70%; height:auto;")
     ),
     
-    tabPanel("> 4",
+    tabPanel("4  Qualitätsindikatoren",
              br(),
              h3("Transparenz schaffen und Qualität verbessern"),
-             h4("Evidenzbasierte Qualitätsindikatoren basierend auf Krankenversicherungsdaten"),
-             br(),
-             h4("Swiss Quality Indicator for Primary Care (SQIPRICA) Project"),
-             p("Sammlung von evidenzbasierten Indikatoren zur Messung der Qualität der ambulanten Primärversorgung in der Schweiz."),
-             tags$img(src = "claims_data.png", style = "max-width:90%; height:auto;")
+             h4("Swiss Quality Indicator for Primary Care (SQIPRICA) Project:
+                Evidenzbasierte Qualitätsindikatoren für die ambulante Primärversorung basierend auf Krankenversicherungsdaten"),
+            
+             "Publikationen:",
+             tags$a(href = 'https://link.springer.com/article/10.1186/s12913-018-3477-z', "Blozik et al. (2018)"),
+             "; ",
+             tags$a(href = 'https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-022-07893-8', "Blozik et al. (2022)"),
+             
+             br(), br(),br(),
+            
+             tags$img(src = "hintergrund_qi.png", style = "max-width:80%; height:auto;")
     )
     
   )  
