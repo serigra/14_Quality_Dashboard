@@ -52,7 +52,7 @@ ui <- dashboardPage(
       tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
       tags$script(src = "custom.js"),
       
-      ## TODO --> shift to custom.css
+      ## TODO --> move to custom.css
       
       # background of leaflet Swiss map same
       tags$style(HTML(".leaflet-container {background: #f8f8f6 !important;}")),
@@ -99,6 +99,8 @@ ui <- dashboardPage(
       # =========================== ARZNEIMITTEL ===============================
       
       tabItem(tabName = "arzneimittel",
+              
+              ## TODO --> move to arzneimittel.R (does not exist yet!)
               
               fluidRow(
                 
@@ -164,14 +166,9 @@ ui <- dashboardPage(
       # ============================ DIABETES ==================================
       
       tabItem(tabName = "diabetes",
-              br(), br(),
-              br(), br(),
-              br(), br(),
-              
-              div(
-                style = "text-align: center;",
-                tags$img(src = "wip.png", style = "max-width:25%; height:auto;")
-              )
+             
+              diabetes() # R/ diabetes.R
+             
       ),
       
       # =========================== ... (OTHER) ================================

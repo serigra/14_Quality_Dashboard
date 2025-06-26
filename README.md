@@ -12,14 +12,23 @@ The methodologies, definitions, and detailed descriptions of all quality indicat
 implemented in this dashboard are publicly available and documented in the relevant scientific literature. 
 Some key publications are listed below:
 
-* [Farcher et al. 2024](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0311099)
+* [Blozik et al. 2018](https://link.springer.com/article/10.1186/s12913-018-3477-z)
 * [Blozik et al. 2022](https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-022-07893-8)
+* [Farcher et al. 2024](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0311099)
 
+<br>
 
 Prototype sketch created with [excalidraw](https://excalidraw.com/) and the [shinydraw library](https://github.com/MikeJohnPage/shinydraw) by Mike Page.
 
 ![](www/skizze_dashboard.png)
 
+<br>
+
+Dashboard built with R [{shiny}](https://shiny.posit.co/) and [{shinydashboard}](https://rstudio.github.io/shinydashboard/).
+
+![](www/dashboard_shiny.png)
+
+<br>
 
 ### Technical Notes
 
