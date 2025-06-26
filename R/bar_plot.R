@@ -6,11 +6,36 @@ bar_plot <- function(data, variable, angle = 30, hjust = 0.5, col, width, height
   
   if (variable == "model") {
     variable_name <- "Versicherungsmodell"
+    
+    # generate data for CI
+    model <- unique(data$model)
+    set.seed(123)  # For reproducibility
+    model_n <- data.frame(
+      model = model,
+      n = sample(500:5000, length(model), replace = TRUE)
+    )
+    data <- merge(data, model_n, by = "model")
+    
   } else if (variable == "Netz") {
     variable_name <- "Ärztenetz"
+    
+    # generate data for CI
+    net <- unique(data$Netz)
+    set.seed(123)  # For reproducibility
+    nets_n <- data.frame(
+      Netz = net,
+      n = sample(500:5000, length(net), replace = TRUE)
+    )
+    data <- merge(data, nets_n, by = "Netz")
   }
   
   tooltip_css <- paste0("background-color:", dark_col, ";color:white;padding:5px;border-radius:3px;")
+  
+  # Calculate Wald confidence intervals
+  z_value <- qnorm(0.975)  # 95% CI (1.96)
+  data$se <- with(data, sqrt((percent/100) * (1 - percent/100) / n) * 100)
+  data$lower <- data$percent - z_value * data$se
+  data$upper <- data$percent + z_value * data$se
   
   qi_name <- unique(data$QI)
   year_name <- unique(data$year)
@@ -24,6 +49,13 @@ bar_plot <- function(data, variable, angle = 30, hjust = 0.5, col, width, height
       width = 0.5, 
       color = dark_col, 
       fill = col
+    ) +
+    geom_errorbar(
+      aes(ymin = lower, ymax = upper),
+      width = 0.2,
+      color = "black",
+      size = 0.7,
+      position = position_dodge(0.8)
     ) +
     scale_y_continuous(
       labels = function(x) paste0(x, "%"),

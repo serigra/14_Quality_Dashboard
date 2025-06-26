@@ -71,6 +71,22 @@ chloroplethServer <- function(id, qi, year) {
       max_percent <- ceiling(max(plot_data$percent, na.rm = TRUE)/10) * 10
       plot_data$kanton <- factor(plot_data$kanton, levels = plot_data$kanton)
       
+      # generate data for CI
+      kantone <- unique(plot_data$kanton)
+      set.seed(123)  # For reproducibility
+      kanton_n <- data.frame(
+        kanton = kantone,
+        n = sample(500:5000, length(kantone), replace = TRUE)
+      )
+      plot_data <- merge(plot_data, kanton_n, by = "kanton")
+      
+      # Calculate Wald confidence intervals
+      z_value <- qnorm(0.975)  # 95% CI (1.96)
+      plot_data$se <- with(plot_data, sqrt((percent/100) * (1 - percent/100) / n) * 100)
+      plot_data$lower <- plot_data$percent - z_value * plot_data$se
+      plot_data$upper <- plot_data$percent + z_value * plot_data$se
+      
+      
       highlight_kanton <- rv$hovered_kanton
       
       # Default color for all bars
@@ -87,7 +103,16 @@ chloroplethServer <- function(id, qi, year) {
         y = ~percent,
         type = 'bar',
         marker = list(color = plot_data$color,
-                      line = list(color = '#1d453b', width = 2))
+                      line = list(color = '#1d453b', width = 2)),
+        
+        error_y = list(
+          type = "data",
+          symmetric = FALSE,
+          color = '#1d453b',
+          array = plot_data$upper - plot_data$percent,      # distance from bar to upper CI
+          arrayminus = plot_data$percent - plot_data$lower  # distance from bar to lower CI
+        )
+        
       ) |> 
         layout(
           yaxis = list(

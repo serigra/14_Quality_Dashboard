@@ -26,8 +26,6 @@ methodik <- function() {
   # ============================================================================
   h3("Definitionen Qualitätsindikatoren"),
   
-  br(),
-  
   h4("Arzneimittelsicherheit"),
   p("Zur Bewertung der Arzneimittelsicherheit erfassen die vier entsprechenden Qualitätsindikatoren
     die Prävalenzen von potenziell problematischen Verschreibungsmustern, 
@@ -68,6 +66,14 @@ methodik <- function() {
     eine potenziell inadäquate Medikation verschrieben bekommen haben."),
   p("Alle 12-Monatsprävalenzen - mit Ausanhme der Prävalenzen nach Alters- und Geschlechtsgruppen - 
     sind adjustiert für die Alters- und Geschlechtsverteilung der jeweiligen Gruppen/ Populationen."),
+  
+  "95%- Wald Konfidenzintervalle: ",
+  HTML('
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+<div style="text-align: center; margin: 20px;">
+  $$CI = \\hat{p} \\pm z_{1-\\alpha/2} \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$$
+</div>
+'),
   
   br()
 )

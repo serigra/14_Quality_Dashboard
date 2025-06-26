@@ -5,6 +5,23 @@ age_sex_plot <- function(data){
   year_name <- unique(data$year)
   upper_y_limit <- max(data$percent, na.rm = TRUE) + 10
   
+  # generate data for CI
+  data$age_sex <- paste(data$age, data$sex, sep = "_")
+  age_sex_classes <- unique(data$age_sex)
+  set.seed(123)  # For reproducibility
+  age_sex_n <- data.frame(
+    age_sex = age_sex_classes,
+    n = sample(2000:5000, length(age_sex_classes), replace = TRUE)
+  )
+  data <- merge(data, age_sex_n, by = "age_sex")
+  
+  # Calculate Wald confidence intervals
+  z_value <- qnorm(0.975)  # 95% CI (1.96)
+  data$se <- with(data, sqrt((percent/100) * (1 - percent/100) / n) * 100)
+  data$lower <- data$percent - z_value * data$se
+  data$upper <- data$percent + z_value * data$se
+  
+  
   # plot <- ggplot(data, aes(x = age, y = percent, fill = sex)) +
   #   geom_bar(stat = "identity", position = position_dodge(width = 0.8), width = 0.6) +
   #   scale_y_continuous(labels = function(x) paste0(x, "%"),
@@ -39,6 +56,13 @@ age_sex_plot <- function(data){
       stat = "identity",
       position = position_dodge(width = 0.8),
       width = 0.6
+    ) +
+    geom_errorbar(
+      aes(ymin = lower, ymax = upper),
+      width = 0.2,
+      color = "black",
+      size = 0.7,
+      position = position_dodge(0.8)
     ) +
     scale_y_continuous(
       labels = function(x) paste0(x, "%"),
