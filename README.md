@@ -26,9 +26,8 @@ Prototype sketch created with [excalidraw](https://excalidraw.com/) and the [shi
 
 Dashboard built with R [{shiny}](https://shiny.posit.co/) and [{shinydashboard}](https://rstudio.github.io/shinydashboard/).
 
-![](www/dashboard_shiny.png)
+![](www/shiny_dashboard.png)
 
-<br>
 
 ### Technical Notes
 
