@@ -3,6 +3,7 @@
 
 <!-- badges: start -->
 <!-- badges: end -->
+### Background
 
 The main goal of this dashboard is to keep track of certain quality indicators for primary care in Switzerland. 
 The dashboard is built using R and the Shiny framework.
@@ -18,6 +19,8 @@ Some key publications are listed below:
 
 <br>
 
+### Dashboard
+
 Prototype sketch created with [excalidraw](https://excalidraw.com/) and the [shinydraw library](https://github.com/MikeJohnPage/shinydraw) by Mike Page.
 
 ![](www/skizze_dashboard.png)
@@ -27,6 +30,12 @@ Prototype sketch created with [excalidraw](https://excalidraw.com/) and the [shi
 Dashboard built with R [{shiny}](https://shiny.posit.co/) and [{shinydashboard}](https://rstudio.github.io/shinydashboard/).
 
 ![](www/shiny_dashboard.png)
+
+
+### Architecture
+
+![](www/architecture.png)
+
 
 
 ### Technical Notes
