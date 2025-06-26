@@ -5,7 +5,8 @@
 <!-- badges: end -->
 ### Background
 
-The main goal of this dashboard is to keep track of certain quality indicators for primary care in Switzerland. 
+The original goal of this dashboard is to monitor specific quality indicators for primary care in Switzerland. 
+Of course the code is fully customizable and can be repurposed for other display needs.
 The dashboard is built using R and the Shiny framework.
 The repository includes *only!* the dashboard application code. For privacy and data protection reasons, 
 the underlying data is not included and must be provided/ generated separately by users implementing the dashboard.
@@ -17,7 +18,6 @@ Some key publications are listed below:
 * [Blozik et al. 2022](https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-022-07893-8)
 * [Farcher et al. 2024](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0311099)
 
-<br>
 
 ### Dashboard
 
@@ -31,6 +31,8 @@ Dashboard built with R [{shiny}](https://shiny.posit.co/) and [{shinydashboard}]
 
 ![](www/shiny_dashboard.png)
 
+
+**Important**: All numbers shown in the two figures above are purely fictional and serve exclusively for demonstration purposes.
 
 ### Architecture
 
