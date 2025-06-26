@@ -7,6 +7,15 @@ hintergrund <- function() {
     id = "tabset1", 
     height = "90vh", width = 12,
     
+    tabPanel("0 ", 
+             br(),
+             br(),
+             div(
+               style = "text-align: center;",
+               tags$img(src = "title_image.png", style = "max-width:45%; height:auto;")
+             )
+    ),
+    
     tabPanel("1 Gesundheitssystem Schweiz", 
              br(),
              h3("Gesundheitssytem Schweiz: Teuer, Gut und Intransparent"),
@@ -25,7 +34,7 @@ hintergrund <- function() {
                       tags$li("Kosten Daten (SwissDRG, SASIS)", style = "font-size:22px;"),
                       tags$li("Qualitäts Daten (ANQ, Register)", style = "font-size:22px;"),
                       tags$li("Andere (IQVIA™ Verkaufsdaten, pharmaSuisse, Sentinella, FIRE, ...)", style = "font-size:22px;"),
-                      tags$li("Versicherungsdaten", style = "font-size:22px; font-weight: bold;"),
+                      tags$li("Krankenversicherungsdaten", style = "font-size:22px; font-weight: bold;"),
                     )
              ),
              column(width = 5, 
@@ -35,8 +44,14 @@ hintergrund <- function() {
     ),
     
     tabPanel("3 Versicherungsdaten",
-             br(),br(),br(),br(),
- 
+             h3("Krankenvsericherungsdaten"),
+             br(),
+             tags$ul(
+               tags$li("Real World Evidence", style = "font-size:22px;"),
+               tags$li("Grösstenteils ohne Bias", style = "font-size:22px;"),
+               tags$li("Sektorübergreifend (Meidkamente, ambulant, stationär, ...)", style = "font-size:22px;")
+             ),
+             br(),
              tags$img(src = "claims_data.png", style = "max-width:70%; height:auto;")
     ),
     
