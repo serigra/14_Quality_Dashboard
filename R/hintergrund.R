@@ -44,12 +44,12 @@ hintergrund <- function() {
     ),
     
     tabPanel("3 Versicherungsdaten",
-             h3("Krankenvsericherungsdaten"),
+             h3("Krankenvsersicherungsdaten"),
              br(),
              tags$ul(
                tags$li("Real World Evidence", style = "font-size:22px;"),
                tags$li("Grösstenteils ohne Bias", style = "font-size:22px;"),
-               tags$li("Sektorübergreifend (Meidkamente, ambulant, stationär, ...)", style = "font-size:22px;")
+               tags$li("Sektorübergreifend (Medikamente, ambulant, stationär, ...)", style = "font-size:22px;")
              ),
              br(),
              tags$img(src = "claims_data.png", style = "max-width:70%; height:auto;")
