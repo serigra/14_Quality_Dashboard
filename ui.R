@@ -55,7 +55,7 @@ ui <- dashboardPage(
       ## TODO --> move to custom.css
       
       # background of leaflet Swiss map same
-      tags$style(HTML(".leaflet-container {background: #f8f8f6 !important;}")),
+      tags$style(HTML(paste0(".leaflet-container {background:", background_color ," !important;}"))),
       # vertical distance between bulleted list of publications
       tags$style(HTML("
               ul.publications {

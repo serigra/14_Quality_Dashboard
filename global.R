@@ -16,6 +16,28 @@ library(sf)
 #library(rsconnect)
 #rsconnect::deployApp('/Users/sereina/Documents/03_Projects/14_Quality_Dashboard')
 
+
+# ==============================================================================
+#                                  COLORs
+# ==============================================================================
+
+dark_color <- "#1d453b"
+# see also: https://cararthompson.shinyapps.io/monochromeR/
+col_palette <- generate_palette(colour = base_color, 
+                                modification = "go_lighter", 
+                                n_colours = 6)
+mid1_color <- col_palette[3]
+mid2_color <- col_palette[4]
+light_color <- col_palette[5]
+
+
+# color for grid lines of all plots
+grid_color <- "#e0e0e0"
+
+# background color
+background_color <- "#f8f8f6"
+
+
 # ==============================================================================
 #                                  DATA 
 # ==============================================================================

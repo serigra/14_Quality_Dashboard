@@ -25,7 +25,7 @@ chloropleth_prep <- function(data) {
   # create a color palette
   bin_width <-  round(length(c(min_percent:max_percent))/10, 0)
   bins <- seq(min_percent, max_percent, bin_width)
-  my_palette <- rev(generate_palette(colour = '#1d453b', modification = "go_lighter", 
+  my_palette <- rev(generate_palette(colour = dark_color, modification = "go_lighter", 
                                  n_colours = length(bins)))
   pal <- colorBin(my_palette, domain = swiss_cantons$percent, bins = bins)
   

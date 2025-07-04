@@ -43,6 +43,10 @@ Dashboard built with R [{shiny}](https://shiny.posit.co/) and [{shinydashboard}]
 ### Technical Notes
 
 * `read_data.R` lives outside of the /R folder, sinced that is only used once and should not be sourced while running the app.
+* color definitions: 
+    - colors for the sidebar and header of the dashboard can be set in `custom.css`.
+    - colors for the plots are defined in `global.R`, `age_sex_plot.R` and `bar_plot.R`.
+    - to get different shades of a color, the [{monochromeR}](https://github.com/cararthompson/monochromeR) package is used as well as its [Shiny application](https://cararthompson.shinyapps.io/monochromeR/) by Cara Thompson.
 
 
 

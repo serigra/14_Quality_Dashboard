@@ -83,12 +83,12 @@ age_sex_plot <- function(data){
       axis.title.x = element_blank(),
       legend.title = element_blank(),
       legend.position = c(0.15, 0.55),
-      panel.grid.major.y = element_line(color = "grey90"),
+      panel.grid.major.y = element_line(color = grid_color),
       panel.grid.major.x = element_blank(),
       panel.grid.minor = element_blank(),
       plot.margin = margin(0, 2, 0, 0),
-      panel.background = element_rect(fill = "#f8f8f6", color = NA),
-      plot.background = element_rect(fill = "#f8f8f6", color = NA)
+      panel.background = element_rect(fill = background_color, color = NA),
+      plot.background = element_rect(fill = background_color, color = NA)
     )
    
   return(girafe(ggobj = p,

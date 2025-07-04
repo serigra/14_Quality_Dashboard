@@ -45,7 +45,7 @@ chloroplethServer <- function(id, qi, year) {
           
           highlightOptions = highlightOptions(
             weight = 4,
-            color = "#1d453b",
+            color = dark_color,
             dashArray = "",
             fillOpacity = 0.7,
             bringToFront = TRUE),
@@ -90,11 +90,11 @@ chloroplethServer <- function(id, qi, year) {
       highlight_kanton <- rv$hovered_kanton
       
       # Default color for all bars
-      plot_data$color <- "#afc1bc"
+      plot_data$color <- light_color
       
       # If a canton is hovered, highlight only that bar
       if (!is.null(highlight_kanton) && highlight_kanton %in% plot_data$kanton) {
-        plot_data$color[plot_data$kanton == highlight_kanton] <- "#1d453b"
+        plot_data$color[plot_data$kanton == highlight_kanton] <- dark_color
       }
       
       plot_ly(
@@ -103,12 +103,12 @@ chloroplethServer <- function(id, qi, year) {
         y = ~percent,
         type = 'bar',
         marker = list(color = plot_data$color,
-                      line = list(color = '#1d453b', width = 2)),
+                      line = list(color = dark_color, width = 2)),
         
         error_y = list(
           type = "data",
           symmetric = FALSE,
-          color = '#1d453b',
+          color = dark_color,
           array = plot_data$upper - plot_data$percent,      # distance from bar to upper CI
           arrayminus = plot_data$percent - plot_data$lower  # distance from bar to lower CI
         )
@@ -146,8 +146,8 @@ chloroplethServer <- function(id, qi, year) {
               )
           )
           ,
-          plot_bgcolor = '#f8f8f6',
-          paper_bgcolor = '#f8f8f6',  
+          plot_bgcolor = background_color,
+          paper_bgcolor = background_color,  
           bargap = 0.3
         )
     })

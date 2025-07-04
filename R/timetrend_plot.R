@@ -6,12 +6,12 @@ timetrend_plot <- function(data){
   
   plot <- data |> 
     ggplot( aes(x = year, y = percent)) +
-    geom_line(linewidth = 1, color = "#1d453b") +
-    geom_point(size = 6, color = "#1d453b", fill = '#afc1bc', shape = 21, stroke = 1.5) +
+    geom_line(linewidth = 1, color = dark_color) +
+    geom_point(size = 6, color = dark_color, fill = light_color, shape = 21, stroke = 1.5) +
     geom_text(aes(label = paste0(percent, "%")), 
               vjust = -1.5, 
               size = 5, 
-              color = "#4b6b6b") +
+              color = mid1_color) +
     scale_x_continuous(breaks = c(2014:2024), labels = c(2014:2024)) +
     scale_y_continuous(breaks = seq(0, upper_y_limit, 5), 
                        labels = function(x) paste0(x, "%"),
@@ -23,11 +23,11 @@ timetrend_plot <- function(data){
       axis.text.y = element_text(size = 14),
       axis.title.y = element_text(size = 13),
       axis.title.x = element_blank(),
-      panel.grid.major = element_line(color = "#e0e0e0"),
+      panel.grid.major = element_line(color = grid_color),
       panel.grid.minor = element_blank(),
       plot.margin = margin(0, 10, 0, 10),
-      panel.background = element_rect(fill = "#f8f8f6", color = NA),
-      plot.background = element_rect(fill = "#f8f8f6", color = NA)
+      panel.background = element_rect(fill = background_color, color = NA),
+      plot.background = element_rect(fill = background_color, color = NA)
     )
   
   return(plot)
