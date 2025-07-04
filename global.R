@@ -23,7 +23,7 @@ library(sf)
 
 dark_color <- "#1d453b"
 # see also: https://cararthompson.shinyapps.io/monochromeR/
-col_palette <- generate_palette(colour = base_color, 
+col_palette <- generate_palette(colour = dark_color, 
                                 modification = "go_lighter", 
                                 n_colours = 6)
 mid1_color <- col_palette[3]
@@ -53,7 +53,8 @@ d.age_sex %<>%
       "Prävalenz: ", percent, "%"
     )
   )
-  
+
+
 d.model %<>%
   mutate(
     tooltip = paste0(
@@ -71,7 +72,7 @@ d.netz %<>%
   )
 
 
-tooltip_css <- "background-color:#7B9790;color:white;padding:5px;border-radius:3px;"
+tooltip_css <- "background-color:#7B9790;color:white;padding:5px;border-radius:3px;border:none;box-shadow:none;"
 
 
 

@@ -111,8 +111,8 @@ chloroplethServer <- function(id, qi, year) {
           color = dark_color,
           array = plot_data$upper - plot_data$percent,      # distance from bar to upper CI
           arrayminus = plot_data$percent - plot_data$lower  # distance from bar to lower CI
-        )
-        
+        ),
+        hovertemplate = "%{x}: %{y:.1f}%<extra></extra>"
       ) |> 
         layout(
           yaxis = list(
@@ -152,7 +152,7 @@ chloroplethServer <- function(id, qi, year) {
         )
     })
     
-    # Observe hover on Leaflet map
+    # observe hover on Leaflet map
     observeEvent(input$plotmap_shape_mouseover, {
       rv$hovered_kanton <- input$plotmap_shape_mouseover$id
     })
@@ -160,18 +160,42 @@ chloroplethServer <- function(id, qi, year) {
       rv$hovered_kanton <- NULL
     })
     
-    # Observe hover on Plotly bar plot
+    
+    # observe hover on Plotly bar plot
     observe({
-      hover <- event_data("plotly_hover", source = ns("plotbar"))
+      hover <- event_data("plotly_hover")
       if (!is.null(hover)) {
-        hovered_kanton <- data()$kanton[hover$pointNumber + 1]
-        # Programmatically highlight canton on map
-        leafletProxy("plotmap", session) %>%
-          setShapeStyle(layerId = hovered_kanton, color = "#FF0000", weight = 5)
-        rv$hovered_kanton <- hovered_kanton
+        rv$hovered_kanton <- hover$x  # or hover$key, depending on your plot_ly setup
       } else {
         rv$hovered_kanton <- NULL
       }
     })
+    
+    # highlight canton on hover in Leaflet map
+    observe({
+      kanton <- rv$hovered_kanton
+      leafletProxy("plotmap") %>% clearGroup("highlight")
+      if (!is.null(kanton)) {
+        # Find the geometry for the hovered canton
+        prep <- chloropleth_prep(data())
+        sf_row <- prep$sf[prep$sf$kanton == kanton, ]
+        if (nrow(sf_row) > 0) {
+          leafletProxy("plotmap") %>%
+            addPolygons(
+              data = sf_row,
+              fill = FALSE,              # No fill at all
+              fillColor = "transparent", # For safety
+              fillOpacity = 0,           # No fill
+              color = dark_color,        # Border color
+              weight = 4,                # border thickness
+              opacity = 1,               # border opacity
+              group = "highlight",
+              layerId = paste0("highlight_", kanton)
+            )
+        }
+      }
+    })
+    
+    
   })
 }

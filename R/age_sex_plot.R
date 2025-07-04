@@ -95,7 +95,9 @@ age_sex_plot <- function(data){
                 width_svg = 10, 
                 height_svg = 6,
                 options = list(
-                  opts_tooltip(css = tooltip_css, opacity = 1),
+                  opts_hover(css = ""), # no hover effect on bars
+                  opts_tooltip(use_fill = TRUE, 
+                               css = "color:#fff; padding:6px; border-radius:6px; border:none; box-shadow:none; font-size:14px;"),
                   opts_toolbar(position =  "bottom"), 
                   opts_toolbar(hidden = c("selection", "zoom", "misc"))
                   
