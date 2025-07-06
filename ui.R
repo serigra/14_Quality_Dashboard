@@ -22,10 +22,7 @@ ui <- dashboardPage(
   dashboardSidebar(
     
     sidebarMenu(
-      menuItem("Hintergrund", tabName = "hintergrund"),
-      menuItem("Entwicklung", tabName = "entwicklung"),
-     
-      hr(),
+      
       
       menuItem("Themenfeld", tabName = "themenfeld",
                menuSubItem("Arzneimittel", tabName = "arzneimittel"),
@@ -33,7 +30,13 @@ ui <- dashboardPage(
                menuSubItem("...",    tabName = "other")
       ),
       menuItem("Methodik", tabName = "methodik"),
-      menuItem("Publikationen", tabName = "publikationen")
+      menuItem("Publikationen", tabName = "publikationen"),
+      
+      hr(),
+      
+      menuItem("Hintergrund", tabName = "hintergrund"),
+      menuItem("Entwicklung", tabName = "entwicklung")
+
     ),
     
     div(

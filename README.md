@@ -1,8 +1,8 @@
 
 # Shiny Dashboard Skeleton
 
-Application available here (all numbers shown are purely fictional and serve exclusively for demonstration purposes):
-https://l9s1fy-sereina-graber.shinyapps.io/14_quality_dashboard/
+Application available [here](https://l9s1fy-sereina-graber.shinyapps.io/14_quality_dashboard/). 
+**Important**: All numbers shown are purely fictional and serve exclusively for demonstration purposes.
 <!-- badges: start -->
 <!-- badges: end -->
 ### Background
