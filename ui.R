@@ -137,17 +137,10 @@ ui <- dashboardPage(
                                                       selected = 2024)
                                           ),
                                    
-                                   column(width = 4, 
-                                          ageSexUI("plot2")
-                                          ),
-                                   
-                                   column(width = 3,
-                                          modelUI("plot3")
-                                          ),
-                                   
-                                   column(width = 4,
-                                          netzUI("plot4")
+                                   column(width = 11,
+                                          barplotsUI("plot_2_3_4")
                                           )
+                                   
                                   ),
                           
                           br(),

@@ -103,7 +103,7 @@ chloroplethServer <- function(id, qi, year) {
         y = ~percent,
         type = 'bar',
         marker = list(color = plot_data$color,
-                      line = list(color = dark_color, width = 2)),
+                      line = list(color = dark_color, width = 1)),
         
         error_y = list(
           type = "data",
@@ -112,9 +112,19 @@ chloroplethServer <- function(id, qi, year) {
           array = plot_data$upper - plot_data$percent,      # distance from bar to upper CI
           arrayminus = plot_data$percent - plot_data$lower  # distance from bar to lower CI
         ),
-        hovertemplate = "%{x}: %{y:.1f}%<extra></extra>"
+        hovertemplate = paste(
+          "Kanton: <b>%{x}</b><br>",
+          "Prävalenz: %{y:.1f}%<extra></extra>"
+        )
       ) |> 
-        layout(
+      style(
+          hoverlabel = list(
+            bgcolor = "#FFFFFF",
+            bordercolor = "transparent",
+            font = list(color = "black")
+          )
+        ) |>
+      layout(
           yaxis = list(
             title = "",
             range = c(0, max_percent),

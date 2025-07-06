@@ -3,7 +3,7 @@
 library(readxl)
 library(tidyverse)
 
-excel_file <- "/Users/sereina/Documents/03_Projects/14_Quality_Dashboard/data/data.xlsx"
+excel_file <- "data/data.xlsx"
 
 # Read each sheet into a separate data frame
 d.qi <- read_excel(excel_file, sheet = "QI")

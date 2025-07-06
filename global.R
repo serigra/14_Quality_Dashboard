@@ -6,6 +6,7 @@ library(magrittr)
 library(plotly)
 library(ggiraph)
 library(monochromeR)
+library(patchwork)
 
 library(leaflet)
 library(sf)
@@ -13,9 +14,13 @@ library(sf)
 
 
 # deploy app on shinyapps.io
-#library(rsconnect)
-#rsconnect::deployApp('/Users/sereina/Documents/03_Projects/14_Quality_Dashboard')
+# library(rsconnect)
+# rsconnect::deployApp('/Users/sereina/Documents/03_Projects/14_Quality_Dashboard')
 
+
+library(gdtools)
+library(gfonts)
+register_gfont("Open Sans") # or "Arial"
 
 # ==============================================================================
 #                                  COLORs
@@ -39,6 +44,15 @@ background_color <- "#f8f8f6"
 
 
 # ==============================================================================
+#                                  Tooltip CSS
+# ==============================================================================
+
+# for bar plots: age_sex, model, netz --> see R/three_bar_plots.R
+
+tooltip_css <- "background-color:#FFFFFF;color:black;padding:5px;border-radius:3px;border:none;box-shadow:2px 2px 8px rgba(0,0,0,0.15);"
+
+
+# ==============================================================================
 #                                  DATA 
 # ==============================================================================
 
@@ -48,8 +62,8 @@ d.age_sex %<>%
   mutate(age = factor(age, levels = unique(d.age_sex$age))) %>%
   mutate(
     tooltip = paste0(
-      "Alter: ", age, "\n",
-      "Geschlecht: ", ifelse(sex == "Female", "Frauen", "Männer"), "\n",
+      "Alter: <b>", age, "</b> \n",
+      "Geschlecht: <b>", ifelse(sex == "Female", "Frauen", "Männer"), "</b> \n",
       "Prävalenz: ", percent, "%"
     )
   )
@@ -58,7 +72,7 @@ d.age_sex %<>%
 d.model %<>%
   mutate(
     tooltip = paste0(
-      "Modell: ", model, "\n",
+      "Modell: <b>", model, "</b> \n",
       "Prävalenz: ", percent, "%"
     )
   )
@@ -66,13 +80,12 @@ d.model %<>%
 d.netz %<>%
   mutate(
     tooltip = paste0(
-      "Netz: ", Netz, "\n",
+      "Netz: <b>", Netz, "</b> \n",
       "Prävalenz: ", percent, "%"
     )
   )
 
 
-tooltip_css <- "background-color:#7B9790;color:white;padding:5px;border-radius:3px;border:none;box-shadow:none;"
 
 
 

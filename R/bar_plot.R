@@ -1,6 +1,9 @@
 
 
-bar_plot <- function(data, variable, angle = 30, hjust = 0.5, col, width, height, mean = TRUE){
+bar_plot <- function(data, variable, angle = 30, hjust = 0.5,
+                     col, width, height, mean = TRUE,
+                     ggiraph = FALSE, base_size = 20,
+                     ...){
   
   dark_col <- generate_palette(colour = col, modification = "go_darker", n_colours = 9)[5]
   
@@ -29,7 +32,7 @@ bar_plot <- function(data, variable, angle = 30, hjust = 0.5, col, width, height
     data <- merge(data, nets_n, by = "Netz")
   }
   
-  tooltip_css <- paste0("background-color:", dark_col, ";color:white;padding:5px;border-radius:3px;")
+  #tooltip_css <- paste0("background-color:", dark_col, ";color:white;padding:5px;border-radius:3px;")
   
   # Calculate Wald confidence intervals
   z_value <- qnorm(0.975)  # 95% CI (1.96)
@@ -43,7 +46,7 @@ bar_plot <- function(data, variable, angle = 30, hjust = 0.5, col, width, height
   
   p <- ggplot(data, aes(x = get(variable), y = percent)) +
     geom_bar_interactive(
-      aes(tooltip = tooltip),
+      aes(tooltip = tooltip, data_id = get(variable)),
       stat = "identity",
       position = position_dodge(width = 0.8),
       width = 0.5, 
@@ -63,22 +66,22 @@ bar_plot <- function(data, variable, angle = 30, hjust = 0.5, col, width, height
     ) +
     labs(
       title = variable_name,
-      y = paste0(qi_name, "  Prävalenz"),
+      y = "", #paste0(qi_name, "  Prävalenz"),
       x = ""
     ) +
-    theme_minimal(base_size = 26) +
+    theme_minimal(base_size = base_size,
+                  base_family = "Open Sans") +
     theme(
-      plot.title = element_text(size = rel(1.15), hjust = -0.1, vjust = -4),
+      plot.title = element_text(size = rel(1), hjust = 0.5, vjust = -1),
       axis.text.x = element_text(angle = angle, hjust = hjust),
       axis.text.y = element_text(),
-      axis.title.y = element_text(),
+      axis.title.y = element_text(size = rel(0.8)),
       axis.title.x = element_blank(),
       legend.title = element_blank(),
-      legend.position = c(0.15, 0.85),
       panel.grid.major.y = element_line(color = grid_color),
       panel.grid.major.x = element_blank(),
       panel.grid.minor = element_blank(),
-      plot.margin = margin(0, 2, 0, 0),
+      plot.margin = margin(0, 3, 0, 3),
       panel.background = element_rect(fill = background_color, color = NA),
       plot.background = element_rect(fill = background_color, color = NA)
     )
@@ -86,21 +89,25 @@ bar_plot <- function(data, variable, angle = 30, hjust = 0.5, col, width, height
   if(mean == TRUE){
     p <- p + geom_hline(yintercept = mean(data$percent, na.rm = TRUE), 
                         linetype = "dashed", color = dark_col, 
-                        linewidth = 2) +
-              annotate("text", x = 3, y = mean(data$percent, na.rm = TRUE) + 3, 
+                        linewidth = 1) +
+              annotate("text", x = 4, y = mean(data$percent, na.rm = TRUE) + 3, 
                        label = paste0("Mittelwert: ", round(mean(data$percent, na.rm = TRUE), 2), "%"), 
-                       size = 8,
+                       size = 6,
                        color = dark_col)
   }
   
+  if(ggiraph){
   return(girafe(ggobj = p,
                 width_svg = width, 
                 height_svg = height,
                 options = list(
-                  opts_tooltip(css = tooltip_css, opacity = 1),
                   opts_toolbar(position =  "bottom"), 
                   opts_toolbar(hidden = c("selection", "zoom", "misc"))
                   
                 )))
+    
+  } else {
+    return(p)
+  }
   
 }

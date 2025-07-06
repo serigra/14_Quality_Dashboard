@@ -10,6 +10,11 @@ chloropleth_prep <- function(data) {
   data(gadmCHE, package = "leaflet")      # load Swiss canton data
   swiss_cantons <- sf::st_as_sf(gadmCHE)  # convert to sf object
   
+  # replace special characters in canton names
+  swiss_cantons$NAME_1 <- replace(swiss_cantons$NAME_1, 
+                                  swiss_cantons$NAME_1 %in% c("Gen`eve", "Graub\"unden", "Neuch^atel", "Z\"urich"), 
+                                  c("Genève", "Graubünden", "Neuchâtel", "Zürich"))
+  
   # add data
   canton_lookup <- data.frame(
     NAME_1 = swiss_cantons$NAME_1,
@@ -31,7 +36,7 @@ chloropleth_prep <- function(data) {
   
   # create labels
   labels <- sprintf(
-    "Prävalenz <strong>%s:</strong><br/>%g%%",
+    "Kanton: <strong>%s</strong><br/>Prävalenz: %g%%",
     swiss_cantons$NAME_1, swiss_cantons$percent
   ) %>% lapply(htmltools::HTML)
   
@@ -40,35 +45,5 @@ chloropleth_prep <- function(data) {
     pal = pal,           # color palette function
     labels = labels      # HTML labels
   )
-  # build the map
-  # plot <- leaflet(swiss_cantons, 
-  #         options = leafletOptions(zoomSnap = 0.1)) %>%
-  #   addPolygons(fillColor = ~pal(percent),
-  #               weight = 2,
-  #               opacity = 1,
-  #               color = "white",
-  #               dashArray = "3",
-  #               fillOpacity = 0.7)  %>% 
-              # ,
-              #   
-              #   highlightOptions = highlightOptions(
-              #     weight = 5,
-              #     color = "#666",
-              #     dashArray = "",
-              #     fillOpacity = 0.7,
-              #     bringToFront = TRUE),
-              #   
-              #   label = labels,
-              #   labelOptions = labelOptions(
-              #     style = list("font-weight" = "normal", padding = "3px 8px"),
-              #     textsize = "15px",
-              #     direction = "auto") )  %>% 
-                
-               
-    # addLegend(pal = pal, values = ~percent, opacity = 0.7, title = NULL,
-    #           position = "bottomright") %>% 
-    # setView(lng = 8.2, lat = 46.8, zoom = 7.0) 
-  
-    # return(plot)
 
 }
